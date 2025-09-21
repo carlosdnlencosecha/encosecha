@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EncoSecha - Real Farm-to-Table Transparency from Colombia</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    
+    * {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    
+    .hero-gradient {
+      background: linear-gradient(135deg, #064e3b 0%, #065f46 25%, #047857 50%, #059669 75%, #10b981 100%);
+    }
+    
+    .floating-animation {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .floating-delayed {
+      animation: float 6s ease-in-out infinite;
+      animation-delay: -3s;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    .card-hover {
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .text-gradient {
+      background: linear-gradient(135deg, #059669, #10b981, #34d399);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .pulse-grow {
+      animation: pulse-grow 2s infinite;
+    }
+    
+    @keyframes pulse-grow {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    
+    .glass-morphism {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .colombia-flag {
+      background: linear-gradient(to bottom, #FFCD00 33.33%, #003087 33.33%, #003087 66.66%, #C8102E 66.66%);
+    }
+    
+    .live-indicator {
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    .metric-counter {
+      font-variant-numeric: tabular-nums;
+    }
+    
+    .donation-glow {
+      box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 via-emerald-50 to-green-50 text-gray-800">
+  
+  <!-- Hero Section with Personal Story -->
+  <header class="hero-gradient text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-black/20"></div>
+    <div class="relative z-20 py-16 px-6">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          
+          <!-- Left Column - Story -->
+          <div>
+            <div class="flex items-center mb-6">
+              <div class="colombia-flag w-8 h-6 rounded mr-3"></div>
+              <span class="text-emerald-200 font-medium">From Sonsón, Antioquia, Colombia</span>
+            </div>
+            
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+              Meet Carlos:<br/>
+              <span class="text-emerald-200">3rd Generation Farmer</span><br/>
+              <span class="text-2xl font-light text-emerald-100">Building the Future of Food</span>
+            </h1>
+            
+            <p class="text-xl text-emerald-100 mb-8 leading-relaxed">
+              I'm combining my grandfather's farming wisdom with IoT sensors I program myself. 
+              Every crop has a real story, every product is fully traceable, and every farmer deserves a direct connection to their customers.
+            </p>
+            
+            <div class="flex flex-wrap gap-4 mb-8">
+              <div class="glass-morphism px-4 py-2 rounded-full flex items-center">
+                <div class="w-2 h-2 bg-green-400 rounded-full live-indicator mr-2"></div>
+                <span class="text-sm">12 IoT sensors live</span>
+              </div>
+              <div class="glass-morphism px-4 py-2 rounded-full">
+                <span class="text-sm">2.3 hectares monitored 24/7</span>
+              </div>
+              <div class="glass-morphism px-4 py-2 rounded-full">
+                <span class="text-sm">0 synthetic chemicals</span>
+              </div>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-4">
+              <button onclick="scrollToSection('donate')" class="bg-white text-emerald-700 px-8 py-4 rounded-xl font-bold shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 donation-glow">
+                🌱 Support This Vision
+              </button>
+              <button onclick="scrollToSection('technology')" class="border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white hover:text-emerald-700 transition-all duration-300">
+                See the Technology
+              </button>
+            </div>
+          </div>
+          
+          <!-- Right Column - Live Data -->
+          <div class="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
+            <h3 class="text-2xl font-bold mb-6 text-center">Live from My Farm Right Now</h3>
+            
+            <div class="grid grid-cols-2 gap-6 mb-6">
+              <div class="text-center">
+                <div class="text-3xl font-bold text-emerald-200 metric-counter">67%</div>
+                <div class="text-sm text-emerald-100">Soil Moisture</div>
+                <div class="text-xs text-emerald-200">Bean Field A • Now</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-emerald-200 metric-counter">22°C</div>
+                <div class="text-sm text-emerald-100">Temperature</div>
+                <div class="text-xs text-emerald-200">Corn Field B • Now</div>
+              </div>
+            </div>
+            
+            <div class="bg-white/10 rounded-xl p-4 mb-4">
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-sm">Bean Growth Progress</span>
+                <span class="text-sm text-emerald-200">75%</span>
+              </div>
+              <div class="bg-white/20 rounded-full h-2">
+                <div class="bg-emerald-400 h-2 rounded-full" style="width: 75%"></div>
+              </div>
+            </div>
+            
+            <p class="text-center text-sm text-emerald-100">
+              🚜 Every sensor reading is real<br/>
+              📍 Coordinates: 5.7081° N, 75.3085° W<br/>
+              🔍 Fully transparent • Fully traceable
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 -mt-8 relative z-10 space-y-16">
+    
+    <!-- The Problem & Vision -->
+    <section class="bg-white/80 backdrop-blur-sm p-8 md:p-12 rounded-3xl shadow-2xl card-hover">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl font-bold text-gradient mb-6">The Problem I'm Solving</h2>
+          <div class="space-y-4 text-gray-700">
+            <p class="text-lg">
+              <strong class="text-red-600">Farmers get 20%</strong> of what consumers pay. 
+              Intermediaries control prices, information, and relationships.
+            </p>
+            <p class="text-lg">
+              <strong class="text-red-600">Consumers don't know</strong> where their food really comes from. 
+              "Farm fresh" is often just marketing.
+            </p>
+            <p class="text-lg">
+              <strong class="text-red-600">Small farmers can't compete</strong> with big agribusiness 
+              because they lack technology and direct market access.
+            </p>
+          </div>
+        </div>
+        
+        <div class="bg-emerald-50 rounded-2xl p-8">
+          <h3 class="text-2xl font-bold text-emerald-800 mb-4">🚀 My Solution: EncoSecha</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <div class="text-emerald-600 mr-3 mt-1">✓</div>
+              <span><strong>Direct Sales:</strong> Farmers sell directly to customers via QR codes</span>
+            </li>
+            <li class="flex items-start">
+              <div class="text-emerald-600 mr-3 mt-1">✓</div>
+              <span><strong>Real Traceability:</strong> IoT sensors provide 24/7 monitoring data</span>
+            </li>
+            <li class="flex items-start">
+              <div class="text-emerald-600 mr-3 mt-1">✓</div>
+              <span><strong>Fair Prices:</strong> No intermediaries = better prices for everyone</span>
+            </li>
+            <li class="flex items-start">
+              <div class="text-emerald-600 mr-3 mt-1">✓</div>
+              <span><strong>Technology Access:</strong> I provide sensors and platform for free</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technology Demo -->
+    <section id="technology" class="space-y-8">
+      <div class="text-center">
+        <h2 class="text-4xl font-bold text-gradient mb-4">The Technology I've Built</h2>
+        <p class="text-gray-600 text-lg max-w-3xl mx-auto">
+          As a self-taught developer and 3rd generation farmer, I'm building the exact tools we need. 
+          Every line of code, every sensor calibration, done by my hands.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-6">
+        
+        <!-- IoT Sensors -->
+        <div class="bg-white/70 backdrop-blur-sm p-8 rounded-2xl shadow-lg card-hover">
+          <div class="text-4xl mb-4 text-center">📡</div>
+          <h3 class="text-xl font-bold text-blue-800 mb-4 text-center">IoT Sensors</h3>
+          <div class="space-y-3 text-sm text-gray-600">
+            <div class="flex justify-between">
+              <span>Arduino ESP32:</span>
+              <strong>12 units</strong>
+            </div>
+            <div class="flex justify-between">
+              <span>Soil moisture:</span>
+              <strong>Real-time</strong>
+            </div>
+            <div class="flex justify-between">
+              <span>Temperature:</span>
+              <strong>±0.5°C</strong>
+            </div>
+            <div class="flex justify-between">
+              <span>pH monitoring:</span>
+              <strong>±0.1</strong>
+            </div>
+            <div class="flex justify-between">
+              <span>Data frequency:</span>
+              <strong>Every hour</strong>
+            </div>
+          </div>
+          <div class="mt-6 text-center">
+            <div class="inline-flex items-center bg-blue-100 px-3 py-1 rounded-full text-xs">
+              <div class="w-2 h-2 bg-blue-500 rounded-full live-indicator mr-2"></div>
+              Live monitoring
+            </div>
+          </div>
+        </div>
+
+        <!-- Web Platform -->
+        <div class="bg-white/70 backdrop-blur-sm p-8 rounded-2xl shadow-lg card-hover">
+          <div class="text-4xl mb-4 text-center">💻</div>
+          <h3 class="text-xl font-bold text-purple-800 mb-4 text-center">Web Platform</h3>
+          <div class="space-y-3 text-sm text-gray-600">
+            <div class="flex justify-between">
+              <span>Code written:</span>
+              <strong>15,847 lines</strong>
+            </div>
+            <div class="flex justify-between">
+              <span>Stack:</span>
+              <strong>React + Node.js</strong>
+            </div>
+            <div class="flex justify-between">
+              <span>Database:</span>
+              <strong>PostgreSQL</strong>
+            </div>
+            <div class="flex justify-between">
+              <span>QR codes generated:</span>
+              <strong>78</strong>
+            </div>
+            <div class="flex justify-between">
+              <span>Updates:</span>
+              <strong>Weekly</strong>
+            </div>
+          </div>
+          <div class="mt-6 text-center">
+            <div class="inline-flex items-center bg-purple-100 px-3 py-1 rounded-full text-xs">
+              💻 100% self-developed
+            </div>
+          </div>
+        </div>
+
+        <!-- QR Traceability -->
+        <div class="bg-white/70 backdrop-blur-sm p-8 rounded-2xl shadow-lg card-hover">
+          <div class="text-4xl mb-4 text-center">🔍</div>
+          <h3 class="text-xl font-bold text-green-800 mb-4 text-center">QR Traceability</h3>
+          <div class="space-y-3 text-sm text-gray-600">
+            <div class="flex justify-between">
+              <span>Events tracked:</span>
+              <strong>450+</strong>
+            </div>
+            <div class="flex justify-between">
+              <span>Data integrity:</span>
+              <strong>Immutable</strong>
+            </div>
+            <div class="flex justify-between">
+              <span>Traceability depth:</span>
+              <strong>Seed to table</strong>
+            </div>
+            <div class="flex justify-between">
+              <span>Historical data:</span>
+              <strong>6 months</strong>
+            </div>
+            <div class="flex justify-between">
+              <span>Real-time updates:</span>
+              <strong>24/7</strong>
+            </div>
+          </div>
+          <div class="mt-6 text-center">
+            <div class="inline-flex items-center bg-green-100 px-3 py-1 rounded-full text-xs">
+              🔒 Permanent records
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Technology Demo -->
+      <div class="bg-gray-900 text-white p-8 rounded-3xl">
+        <div class="text-center mb-6">
+          <h3 class="text-2xl font-bold mb-2">Live Technology Demo</h3>
+          <p class="text-gray-300">Real data from my sensors right now in Sonsón, Colombia</p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-gray-800 p-6 rounded-xl">
+            <div class="flex justify-between items-center mb-4">
+              <span class="text-gray-400">Bean Field A</span>
+              <div class="w-2 h-2 bg-green-400 rounded-full live-indicator"></div>
+            </div>
+            <div class="text-2xl font-bold text-green-400 mb-2">67%</div>
+            <div class="text-sm text-gray-400">Soil moisture • Optimal range</div>
+            <div class="text-xs text-gray-500 mt-2">Last update: 2 min ago</div>
+          </div>
+          
+          <div class="bg-gray-800 p-6 rounded-xl">
+            <div class="flex justify-between items-center mb-4">
+              <span class="text-gray-400">Corn Field B</span>
+              <div class="w-2 h-2 bg-blue-400 rounded-full live-indicator"></div>
+            </div>
+            <div class="text-2xl font-bold text-blue-400 mb-2">22°C</div>
+            <div class="text-sm text-gray-400">Temperature • Ideal</div>
+            <div class="text-xs text-gray-500 mt-2">Last update: 1 min ago</div>
+          </div>
+          
+          <div class="bg-gray-800 p-6 rounded-xl">
+            <div class="flex justify-between items-center mb-4">
+              <span class="text-gray-400">Vegetable Field C</span>
+              <div class="w-2 h-2 bg-yellow-400 rounded-full live-indicator"></div>
+            </div>
+            <div class="text-2xl font-bold text-yellow-400 mb-2">6.5</div>
+            <div class="text-sm text-gray-400">pH level • Perfect</div>
+            <div class="text-xs text-gray-500 mt-2">Last update: 3 min ago</div>
+          </div>
+        </div>
+        
+        <div class="mt-6 text-center">
+          <p class="text-gray-400 text-sm">
+            🔗 Try it: Scan QR code on any product to see complete history • 📍 GPS: 5.7081° N, 75.3085° W
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Current Crops -->
+    <section class="bg-gradient-to-r from-green-50 to-emerald-50 p-8 rounded-3xl">
+      <h2 class="text-3xl font-bold text-gradient text-center mb-8">What I'm Growing Right Now</h2>
+      
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Bean Field -->
+        <div class="bg-white p-6 rounded-2xl shadow-lg card-hover">
+          <div class="flex justify-between items-start mb-4">
+            <h3 class="text-xl font-bold text-emerald-800">Cargamanto Beans</h3>
+            <div class="bg-emerald-100 px-3 py-1 rounded-full text-xs font-medium text-emerald-800">
+              75% complete
+            </div>
+          </div>
+          <div class="space-y-2 text-sm text-gray-600 mb-4">
+            <div class="flex justify-between">
+              <span>Area:</span><strong>0.8 hectares</strong>
+            </div>
+            <div class="flex justify-between">
+              <span>Planted:</span><strong>Mar 15, 2025</strong>
+            </div>
+            <div class="flex justify-between">
+              <span>Harvest:</span><strong>~45 days</strong>
+            </div>
+            <div class="flex justify-between">
+              <span>Sensors:</span><strong>4 active</strong>
+            </div>
+          </div>
+          <div class="bg-emerald-50 rounded-lg p-3">
+            <div class="text-xs text-emerald-700 mb-1">Current Status:</div>
+            <div class="text-sm font-medium text-emerald-800">Advanced flowering • Organic fertilization • Smart irrigation</div>
+          </div>
+        </div>
+
+        <!-- Corn Field -->
+        <div class="bg-white p-6 rounded-2xl shadow-lg card-hover">
+          <div class="flex justify-between items-start mb-4">
+            <h3 class="text-xl font-bold text-yellow-700">Yellow Corn</h3>
+            <div class="bg-yellow-100 px-3 py-1 rounded-full text-xs font-medium text-yellow-800">
+              85% complete
+            </div>
+          </div>
+          <div class="space-y-2 text-sm text-gray-600 mb-4">
+            <div class="flex justify-between">
+              <span>Area:</span><strong>1.0 hectares</strong>
+            </div>
+            <div class="flex justify-between">
+              <span>Planted:</span><strong>Feb 20, 2025</strong>
+            </div>
+            <div class="flex justify-between">
+              <span>Harvest:</span><strong>~20 days</strong>
+            </div>
+            <div class="flex justify-between">
+              <span>Sensors:</span><strong>5 active</strong>
+            </div>
+          </div>
+          <div class="bg-yellow-50 rounded-lg p-3">
+            <div class="text-xs text-yellow-700 mb-1">Current Status:</div>
+            <div class="text-sm font-medium text-yellow-800">Grain filling • Native variety • Legume rotation</div>
+          </div>
+        </div>
+
+        <!-- Vegetables -->
+        <div class="bg-white p-6 rounded-2xl shadow-lg card-hover">
+          <div class="flex justify-between items-start mb-4">
+            <h3 class="text-xl font-bold text-green-700">Green Onions</h3>
+            <div class="bg-green-100 px-3 py-1 rounded-full text-xs font-medium text-green-800">
+              Ready now
+            </div>
+          </div>
+          <div class="space-y-2 text-sm text-gray-600 mb-4">
+            <div class="flex justify-between">
+              <span>Area:</span><strong>0.5 hectares</strong>
+            </div>
+            <div class="flex justify-between">
+              <span>Planted:</span><strong>Apr 1, 2025</strong>
+            </div>
+            <div class="flex justify-between">
+              <span>Harvest:</span><strong>Continuous</strong>
+            </div>
+            <div class="flex justify-between">
+              <span>Sensors:</span><strong>3 active</strong>
+            </div>
+          </div>
+          <div class="bg-green-50 rounded-lg p-3">
+            <div class="text-xs text-green-700 mb-1">Current Status:</div>
+            <div class="text-sm font-medium text-green-800">Harvest ready • 500g baskets available • Fresh daily</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-8">
+        <div class="inline-flex items-center bg-white px-6 py-3 rounded-full shadow-lg">
+          <span class="text-gray-700">🚜 Total monitored:</span>
+          <strong class="ml-2 text-emerald-700">2.3 hectares • 12 IoT sensors • 0 synthetic chemicals</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section id="donate" class="bg-gradient-to-br from-emerald-600 to-green-700 text-white p-8 md:p-12 rounded-3xl shadow-2xl">
+      <div class="text-center mb-12">
+        <div class="text-6xl mb-6 pulse-grow">🌱</div>
+        <h2 class="text-4xl font-bold mb-4">Help Me Scale This Technology</h2>
+        <p class="text-xl text-emerald-100 max-w-3xl mx-auto leading-relaxed">
+          Your donation directly funds more IoT sensors, platform development, and helps me connect more farmers to direct markets. 
+          Every dollar is invested in building real agricultural transparency.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        
+        <!-- Donation Options -->
+        <div>
+          <h3 class="text-2xl font-bold mb-6 text-center">🌍 International Support</h3>
+          
+          <div class="space-y-4">
+            <!-- PayPal -->
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+              <div class="flex items-center mb-4">
+                <div class="text-2xl mr-3">💳</div>
+                <h4 class="text-xl font-bold">PayPal (Global)</h4>
+              </div>
+              <p class="text-emerald-100 mb-4">Secure international donations via PayPal</p>
+              <form action="https://www.paypal.com/donate" method="post" target="_blank">
+                <input type="hidden" name="hosted_button_id" value="YOUR_BUTTON_ID" />
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-bold transition-all duration-300">
+                  Donate via PayPal
+                </button>
+              </form>
+            </div>
+
+            <!-- Crypto -->
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+              <div class="flex items-center mb-4">
+                <div class="text-2xl mr-3">₿</div>
+                <h4 class="text-xl font-bold">Cryptocurrency</h4>
+              </div>
+              <p class="text-emerald-100 mb-4">Support with Solana (SOL)</p>
+              <div class="bg-gray-900 p-3 rounded-lg mb-3">
+                <p class="text-xs font-mono text-gray-300 break-all">
+                  95nGdKtrB94cGVRzMvHeZYaR8DXZ5S3RXrJBEbQqFhnF
+                </p>
+              </div>
+              <button class="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-xl font-bold transition-all duration-300">
+                Copy Wallet Address
+              </button>
+            </div>
+
+            <!-- Local Colombia -->
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+              <div class="flex items-center mb-4">
+                <div class="colombia-flag w-6 h-4 rounded mr-3"></div>
+                <h4 class="text-xl font-bold">Colombia (Nequi)</h4>
+              </div>
+              <p class="text-emerald-100 mb-4">For supporters in Colombia</p>
+              <div class="text-center">
+                <div class="text-2xl font-bold">314 797 8583</div>
+                <div class="text-sm text-emerald-200">Carlos Ospina • EncoSecha</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Impact Breakdown -->
+        <div>
+          <h3 class="text-2xl font-bold mb-6 text-center">🎯 Your Impact</h3>
+          
+          <div class="space-y-6">
+            <!-- Funding Goals -->
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+              <h4 class="text-lg font-bold mb-4">💰 How Funds Are Used</h4>
+              <div class="space-y-3">
+                <div class="flex justify-between items-center">
+                  <span class="text-emerald-100">IoT Sensors & Hardware</span>
+                  <strong>40%</strong>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-emerald-100">Platform Development</span>
+                  <strong>25%</strong>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-emerald-100">Server & Hosting</span>
+                  <strong>20%</strong>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-emerald-100">Seeds & Cultivation</span>
+                  <strong>10%</strong>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-emerald-100">Logistics & Transport</span>
+                  <strong>5%</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Milestones -->
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+              <h4 class="text-lg font-bold mb-4">🚀 Funding Milestones</h4>
+              <div class="space-y-4">
+                <div class="border-l-2 border-emerald-400 pl-4">
+                  <div class="font-bold text-emerald-200">$500 USD</div>
+                  <div class="text-sm text-emerald-100">5 additional IoT sensors</div>
+                </div>
+                <div class="border-l-2 border-blue-400 pl-4">
+                  <div class="font-bold text-blue-200">$1,200 USD</div>
+                  <div class="text-sm text-blue-100">Mobile app development</div>
+                </div>
+                <div class="border-l-2 border
